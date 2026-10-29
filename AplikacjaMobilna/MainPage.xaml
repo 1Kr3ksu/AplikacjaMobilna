@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AplikacjaMobilna.MainPage"
+    BackgroundColor="#F0F8FF">
+
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="10"
+        BackgroundColor="#F0F8FF">
+
+        <Label
+            Text="Notatki"
+            FontSize="30"
+            TextColor="#0000CD"
+            HorizontalOptions="Center" />
+
+        <CollectionView
+            ItemsSource="{Binding Notes}"
+            HeightRequest="200">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="5">
+                        <Label
+                            Text="{Binding Tytul}"
+                            TextColor="Black"
+                            FontSize="18"
+                            FontAttributes="Bold" />
+
+                        <Label
+                            Text="{Binding Tresc}"
+                            TextColor="Black"
+                            FontSize="16" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label
+            Text="Dodanie notatki"
+            FontSize="22"
+            TextColor="#0000CD"
+            Margin="0,15,0,0" />
+
+        <Label
+            Text="Tytuł notatki:"
+            TextColor="Black"
+            FontSize="16" />
+
+        <Entry
+            x:Name="TytulEntry"
+            Placeholder="Wpisz tytuł notatki" />
+
+        <Label
+            Text="Treść notatki:"
+            TextColor="Black"
+            FontSize="16" />
+
+        <Editor
+            x:Name="TrescEditor"
+            Placeholder="Wpisz treść notatki"
+            AutoSize="TextChanges" />
+
+        <Button
+            Text="DODAJ"
+            TextColor="#0000CD"
+            Clicked="OnAddClicked" />
+
+    </VerticalStackLayout>
+</ContentPage>
